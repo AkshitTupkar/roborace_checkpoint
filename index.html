@@ -16,11 +16,16 @@
     body {margin: 0;}
     .topnav {overflow: hidden; color: white; padding: 10px;}
     .content {padding: 20px;}
-    .card {background-color: white; box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5); padding: 20px; border-radius: 25px;}
-    .cards {font-family: Arial, Helvetica, sans-serif; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 1000px; margin: 0 auto;}
-    .reading {font-size: 2rem; color: #333;}
-    .packet {color: #555;}
-    h4{font-size: 1.8rem;}
+    .card {background-color: #0ce2e2ac; box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5); padding: 20px; border-radius: 25px;}
+       .cards {font-family: Arial, Helvetica, sans-serif; display: grid; grid-gap: 3rem; grid-template-columns: repeat(3, 1fr);  /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))*/; max-width: 1000px; margin: 0 auto; }
+       .card:nth-child(1) { grid-column: 1; grid-row: 1; } /* Checkpoint 1 */
+       .card:nth-child(2) { grid-column: 2; grid-row: 1; } /* Checkpoint 2 */
+       .card:nth-child(3) { grid-column: 3; grid-row: 1; } /* Checkpoint 3 */
+       .card:nth-child(4) { grid-column: 2; grid-row: 2; } /* Checkpoint 4 below Checkpoint 2 */
+       .card:nth-child(5) { grid-column: 3; grid-row: 2; } /* Checkpoint 5 below Checkpoint 3 */
+    .reading {font-size: 2rem; color: grey;}
+    .packet {color: #000000;}
+    h4{font-size: 2rem; color:black;}
     @font-face {font-family:'road';src: url('SuperRoadDemoRegular.ttf')}
     h1{ font-family: 'road';background: linear-gradient(to bottom, #ffff00 , gold );
     -webkit-background-clip: text; 
@@ -37,27 +42,27 @@
     <div class="cards">
       <div class="card">
         <h4>CHECKPOINT 1</h4>
-        <p>Points: <span class="reading" id="t1">--</span></p>
+        <p><b>Points</b>: <span class="reading" id="t1">--</span></p>
       </div>
 
       <div class="card">
         <h4>CHECKPOINT 2</h4>
-        <p>Points: <span class="reading" id="t2">--</span></p>
+        <p><b>Points</b>: <span class="reading" id="t2">--</span></p>
       </div>
 
       <div class="card">
         <h4>CHECKPOINT 3</h4>
-        <p>Points: <span class="reading" id="t3">--</span></p>
+        <p><b>Points</b>: <span class="reading" id="t3">--</span></p>
       </div>
 
       <div class="card">
         <h4>CHECKPOINT 4</h4>
-        <p>Points: <span class="reading" id="t4">--</span></p>
-
+        <p><b>Points</b>: <span class="reading" id="t4">--</span></p>
       </div>
+
       <div class="card">
         <h4>CHECKPOINT 5</h4>
-        <p>Points: <span class="reading" id="t5">--</span></p>
+        <p><b>Points</b>: <span class="reading" id="t5">--</span></p>
       </div>
 
     </div>
