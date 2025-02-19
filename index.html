@@ -12,41 +12,48 @@
     
     <style>
      body{
-        color: #ffffff;
-         background-image: url(https://wallpaper.forfun.com/fetch/7f/7fd7c66ecefecd3da76c4c9554a01f55.jpeg);
-         background-repeat: no-repeat;
+        color: #000000;
          overflow: hidden;}
      html {font-family: Arial; display: inline-block; text-align: center;}
      p {font-family: "Iceberg", serif;
      font-size: 2rem;}
      body {margin: 0;}
-     .topnav {overflow: hidden; color: white; padding: 10px; text-align: left; padding-left: 50px;}
-     .content {padding: 100px;}
+     .topnav {overflow: hidden; color: white; padding: 0px; text-align: right; padding-right: 90px;}
+     .content {padding: 40px;}
       .card {background-color: #13b8d110; box-shadow: 2px 2px 12px 1px rgba(255, 255, 255, 0.762); padding: 10px; border-radius: 25px;}
-       .cards {font-family: Arial, Helvetica, sans-serif; display: grid; grid-gap: 3rem; grid-template-columns: repeat(3, 1fr); margin: 0 auto; }
-       .card:nth-child(1) { grid-column: 1; grid-row: 1; background-color:rgba(0, 94, 255, 0.066);} /* Checkpoint 1 if check point complete then remove bg color*/
-       .card:nth-child(2) { grid-column: 2; grid-row: 1; background-color:rgba(0, 94, 255, 0.504);}
-       .card:nth-child(3) { grid-column: 3; grid-row: 1; background-color:rgba(0, 94, 255, 0.504);} 
-       .card:nth-child(4) { grid-column: 4; grid-row: 1; background-color:rgba(0, 94, 255, 0.504); } 
-       .card:nth-child(5) { grid-column: 5; grid-row: 1; background-color:rgba(0, 94, 255, 0.504); } 
-    .reading {font-size: 2rem; color: rgb(255, 255, 255);}
+       .cards {font-family: Arial, Helvetica, sans-serif; display: grid; grid-gap: 3rem; grid-template-columns: repeat(5, 1fr); margin: 0 auto; }
+       .card:nth-child(1) { grid-column: 1; grid-row: 1; background-color:rgba(139, 178, 243, 0.92);}
+       .card:nth-child(2) { grid-column: 2; grid-row: 1; background-color:rgba(139, 178, 243, 0.92);}
+       .card:nth-child(3) { grid-column: 3; grid-row: 1; background-color:rgba(139, 178, 243, 0.92);} 
+       .card:nth-child(4) { grid-column: 4; grid-row: 1; background-color:rgba(139, 178, 243, 0.92);} 
+       .card:nth-child(5) { grid-column: 5; grid-row: 1; background-color:rgba(139, 178, 243, 0.92);} 
+    .reading {font-size: 3rem; color: rgb(0, 0, 0);}
     .packet {color: #000000;}
-    @font-face {font-family:'road';src: url('SuperRoadDemoRegular.ttf')}
+    @font-face {font-family:'road'; src: url('SuperRoadDemoRegular.ttf')}
     h4{font-family: "Iceberg", serif;
-    font-size:2rem; color:rgb(22, 185, 255);}
-    h1{ font-family: 'road';background: linear-gradient(to bottom, gold , rgb(255, 227, 65));
+    font-size:2.3rem; color:rgb(0, 0, 0);}
+    h1{ font-family: 'road';background: linear-gradient(to bottom right, gold , rgb(238, 255, 0) );
     letter-spacing: 5px;
+    text-align: center;
+    float: right;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
     -webkit-text-fill-color: transparent;
-    font-size: 6.8em;}
+    font-size: 8.5em;}
 
     /* particle */
     /* ---- reset ---- */
 .holder{
     height: 100vh;
-    background-color: #0000006c;
+    width: 100vw;
+    background-color: #00020e;
+    /* background-image: url('https://wallpaperbat.com/img/36570-decepticons-logo-wallpaper.jpg'); */
+    background-image: url(Optimus.png);
+    background-size: contain; /* Keep the image fully visible */
+    background-repeat: no-repeat;
+    background-position: left;
+    background-blend-mode: lighten; /* Ensures the image is visible */
 }
 body {
     margin: 0;
@@ -55,14 +62,11 @@ body {
 
 canvas {
     display: block;
-    vertical-align: bottom;
 }
 
 /* ---- particles.js container ---- */
 
 #particles-js {
-    
-  
   position: absolute;
   width: 100%;
   height: 100%;
@@ -90,7 +94,7 @@ canvas {
   <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
   <script src='https://threejs.org/examples/js/libs/stats.min.js'></script><script  src="./script.js"></script>
   <!-- particle -->
-    <h1>PATH OF PRIMES <span>SCOREBOARD</span></h1>
+    <h1><i>PATH OF PRIMES <br>SCOREBOARD</br></i></h1>
   </div>
   <div class="content">
     <div class="cards">
@@ -136,24 +140,42 @@ canvas {
         }
       }, false);
 
-      source.addEventListener('new_readings', function(e) {
-        console.log("new_readings", e.data);
-        var obj = JSON.parse(e.data);
-        var checkpointId = obj.id;
-        if (checkpointId >= 1 && checkpointId <= 5) {
+      // Previous code//
+      // source.addEventListener('new_readings', function(e) {
+      //   console.log("new_readings", e.data);
+      //   var obj = JSON.parse(e.data);
+      //   var checkpointId = obj.id;
+      //   if (checkpointId >= 1 && checkpointId <= 5) {
           
-          document.getElementById("t" + checkpointId).innerHTML = obj.check.toFixed(2);
+      //     document.getElementById("t" + checkpointId).innerHTML = obj.check.toFixed(2);
           
-        }
-      }, false);
+      //   }
+      // }, false);
     }
+    
+    //New Code//
+    source.addEventListener('new_readings', function(e) {
+    console.log("new_readings", e.data);
+    var obj = JSON.parse(e.data);
+    var checkpointId = obj.id;
+
+    if (checkpointId >= 1 && checkpointId <= 5) {
+        // Update the displayed score
+        document.getElementById("t" + checkpointId).innerHTML = obj.check.toFixed(2);
+        
+        // Get the checkpoint card and change its background color
+        var checkpointCard = document.querySelector(".cards .card:nth-child(" + checkpointId + ")");
+        checkpointCard.style.backgroundColor = "rgba(58, 163, 4, 0.72);";  // Active state color
+    }
+}, false);
+
     // particle
     /* ---- particles.js config ---- */
 
 particlesJS("particles-js", {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 50,
       "density": {
         "enable": true,
         "value_area": 800
